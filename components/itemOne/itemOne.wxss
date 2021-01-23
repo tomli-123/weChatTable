@@ -1,0 +1,59 @@
+/* components/itemOne/itemOne.wxss */
+/* pages/components/order/order.wxss */
+.table {
+  border: 0px solid darkgray;
+  padding-top: 60rpx;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* height: 3rem; */
+  align-items: center;
+}
+.title{
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+}
+.desc{
+  height: 5rem;
+}
+.td {
+  width: 40%;
+  height: 3rem;
+  line-height: 3rem;
+  justify-content: center;
+  text-align: center;
+  margin-left: -1px;
+  border: 1px solid gainsboro;
+  font-size: 12px;
+}
+input{
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.bg-w {
+  background: snow;
+}
+.bg-g {
+  background: #E6F3F9;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  /* background: #E6F3F9; */
+  text-align: center;
+  color: black;
+  display: flex;
+  height: 5rem;
+  font-size: 12px;
+  align-items: center;
+  margin-left: -1px;
+  border: 1px solid gainsboro;
+}
+.confirm{
+  margin-top: 0.5rem;
+}

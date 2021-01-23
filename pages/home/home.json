@@ -1,0 +1,12 @@
+{
+  "component":true,
+  "usingComponents": {
+    "component_itemOne": "/components/itemOne/itemOne",
+    "component_itemTwo": "/components/itemTwo/itemTwo",
+    "component_itemThree": "/components/itemThree/itemThree",
+    "component_itemFour": "/components/itemFour/itemFour",
+    "component_itemFive": "/components/itemFive/itemFive",
+    "component_itemSix": "/components/itemSix/itemSix",
+    "component_itemSeven": "/components/itemSeven/itemSeven"
+  }
+}

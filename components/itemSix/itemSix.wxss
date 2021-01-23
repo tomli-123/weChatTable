@@ -1,0 +1,4 @@
+/* components/itemSix.wxss */
+.itemSix{
+  padding-top: 60rpx;
+}
