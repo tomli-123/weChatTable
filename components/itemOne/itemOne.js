@@ -5,7 +5,9 @@ Component({
       try {
        // 需要在初始化的时候做的操作
        console.log('初始化');
-       const temp = [52,53,54];
+      //  接受数据（二维码）
+       const temp = [8,9,10,11];
+      //  请求得到该列表数据
        const obj = { "list":[] };
        const that = this;
        temp.forEach(item => {
@@ -20,11 +22,19 @@ Component({
           that.setData({
             value: res.data.data
           });
+          // 处理value数据
+          const  filterData = that.data.value.filter(item => {
+            item.total = '';
+            return item.projectname === "奥术大师多";
+          });
+          that.setData({
+            filterData
+          });
+          console.log(that.data.filterData)
         }
       });
       } catch (e) {
       }
-      // console.log('lifetimes执行了qqq')
       // 在组件实例进入页面节点树时执行
     },
     detached: function () {
@@ -34,14 +44,36 @@ Component({
   data: {
     value: [  ],
     form: {
-      value1: 1,
-      value2: 2
     }
   },
   // 校验
 
 
   methods:{
+    // input事件 给value赋值
+    changeValue(e){
+      const key = e.currentTarget.dataset['index'];
+      const value = e.currentTarget.dataset['name'];
+      const id = e.currentTarget.dataset['id'];
+      // 微信小程序的 动态赋值 （笔记记录）
+      const inputValue = this.data.filterData;
+      inputValue[id][value] =  e.detail.value;
+      inputValue[id]['total'] = parseInt(inputValue[id]['calculationscheme'] ? inputValue[id]['calculationscheme'] : 0) 
+      + parseInt(inputValue[id]['nameofbiddernum'] ? inputValue[id]['nameofbiddernum'] : 0);
+      this.setData({
+        filterData: inputValue,
+
+      });
+      
+      console.log(this.data.filterData);
+    }
+    // input 事件
+    // add(e){
+    //   this.setData({
+    //     form0:e.detail.value      
+    //   });
+    //   console.log(e.detail.value)
+    // }
       //报错 
   // showModal(error) {
   //   wx.showToast({

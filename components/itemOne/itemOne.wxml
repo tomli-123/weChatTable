@@ -13,30 +13,32 @@
  <view class="th">投选人对项目投入技术资源(1-10)</view>
  <view class="th">总分</view>
  </view>
- <block wx:for="{{value}}" wx:key="{[code]}">
+ <block wx:for="{{filterData}}" wx:key="{[code]}">
  <view class="tr bg-w" wx:if="{{index % 2 == 0}}">
- <view class="td">{{item.projectName}}</view>
- <view class="td"></view>
- <view class="td"><input maxlength="2"  type="number" value="{{ form.value1 }}" /></view>
- <view class="td"><input maxlength="2"   value="{{ form.value2 }}" type="number" /></view>
- <view class="td"><input maxlength="2"  value="{{ form.value1 }}" type="number" /></view>
- <view class="td"><input maxlength="2"   value="{{ form.value2 }}" type="number" /></view>
- <view class="td"><input maxlength="2"  value="{{ form.value1 }}"  type="number" /></view>
- <view class="td"></view>
+ <view class="td">{{item.name}}</view>
+ <view class="td">{{ item.businessstandard ? item.businessstandard : '' }}</view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-name="calculationscheme" data-id="{{ index }}" data-index="{{ item }}" value="{{ item.calculationscheme }}" type="number"/></view>
+ <!-- 数据为假 -->
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-name="nameofbiddernum" data-id="{{ index }}" data-index="{{ item }}" value="{{ item.nameofbiddernum }}" type="number" /></view>
+ <!-- <view class="td"><input maxlength="2" bindinput="changeValue" data-name="aftersales" data-index="{{ item }}" value="{{ item.aftersales }}" type="number" /></view>  -->
+ <!-- <view class="td"><input maxlength="2" bindinput="changeValue" data-name="team" data-index="{{ item }}" value="{{ item.team }}" type="number" /></view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-name="resources" data-index="{{ item }}" value="{{ item.resources }}" type="number" /></view> -->
+ <view class="td">{{ item.total }}</view>
  </view>
  <view class="tr bg-g" wx:else>
- <view class="td">{{item.projectName}}</view>
- <view class="td"></view>
- <view class="td"><input maxlength="2" type="number" /></view>
- <view class="td"><input maxlength="2" type="number" /></view>
- <view class="td"><input maxlength="2" type="number" /></view>
- <view class="td"><input maxlength="2" type="number" /></view>
- <view class="td"><input maxlength="2" type="number" /></view>
- <view class="td"></view>
+ <view class="td">{{item.name}}</view>
+ <view class="td">{{ item.businessstandard ? item.businessstandard : '' }}</view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-id="{{ index }}" data-name="calculationscheme" data-index="{{ item }}" value="{{ item.calculationscheme }}" type="number" /></view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-id="{{ index }}" data-name="nameofbiddernum" data-index="{{ item }}" value="{{ item.nameofbiddernum }}" type="number" /></view>
+ <!-- <view class="td"><input maxlength="2" bindinput="changeValue" data-name="aftersales" data-index="{{ item }}" value="{{ item.aftersales }}" type="number" /></view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-name="team" data-index="{{ item }}" value="{{ item.team }}" type="number" /></view>
+ <view class="td"><input maxlength="2" bindinput="changeValue" data-name="resources" data-index="{{ item }}" value="{{ item.resources }}" type="number" /></view> -->
+ <view class="td">{{ item.total }}</view>
  </view>
  <!-- 按钮 -->
  </block>
  <view class="confirm">
- <button type="primary">点击获取总分</button> 
+   <!-- 调节不同设备之间的宽度 带调 -->
+ <button type="primary" bindtap="submit" id="submit">提交</button> 
  </view>
 </view> 
